@@ -1,0 +1,18 @@
+[project]
+name = "seven-configs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "commitizen>=3.29.1",
+    "cz-conventional-gitmoji>=0.3.3",
+]
+
+[tool.commitizen]
+name = "cz_gitmoji"
+tag_format = "$version"
+version_scheme = "semver2"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true
