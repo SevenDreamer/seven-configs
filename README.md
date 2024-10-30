@@ -1,22 +1,30 @@
-# 记录我的所有配置文件内容
-
-## 带做事项
-- 一件安装所有配置以及应用
-- 可配置性的记录文件应该去哪个位置
-- 自动下载安装我需要用到的软件
-
-## 实现方式
-1. 创建一个可能叫做元数据的文件 configs.toml ？名字可能会换掉
-2. 创建一个命令名比如说叫 sconfig
-3. 对于需要同步文件或目录可以使用  
+# 配置管理器
+帮你记录你所有工具的配置内容信息
 
 ## Usage
-添加目录或文件作为同步记录
-```sh
-scofig add <config_group> <fold | file>
+### 打开工具管理界面
+```bash
+$ sconfig
 ```
-将会在 configs.toml 记录一条内容比如
-```toml
-[configs.uv]
-bck_path = ".config" # 备份指定的位置
+执行命令后会打开一个终端的管理界面，左边记录了添加的工具列表，右边记录的工具配置的路径
+
+### 添加工具的配置路径
+```bash
+$ sconfig add <tool_name> <config_path>
+# Options:
+# --only <os_type> # 只适用于某个系统 目前计划按照支持ubuntu,macOS,Windows
 ```
+
+### 删除工具某个配置路径
+```bash
+$ sconfig remove <tool_name>
+```
+
+
+### 同步配置
+会将本地的配置同步到个人的github仓库中
+```bash
+$ sconfig sync
+```
+
+具体实现方法: 判断git仓库的commit情况，有过有新的则会从git上pull下来，反正如果本地有新的内容将会从push到git上
