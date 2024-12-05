@@ -3,17 +3,16 @@ name = "seven-configs"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 dependencies = [
-    "pydantic>=2.9.2",
-    "textual>=0.73.0",
-    "typer>=0.12.5",
+    "sqlmodel>=0.0.22",
+    "typer>=0.15.1",
 ]
 
 [tool.commitizen]
 name = "cz_gitmoji"
 tag_format = "$version"
-version_scheme = "semver2"
+version_scheme = "pep440"
 version_provider = "pep621"
 update_changelog_on_bump = true
 major_version_zero = true
